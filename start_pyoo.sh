@@ -14,5 +14,7 @@ echo ""
 sleep 1
 
 echo "docker run -ti --rm --name $CONTAINER_WEB --link $CONTAINER_OPENOFFICE:$CONTAINER_OPENOFFICE \
-$CONTAINER_IMAGE "
+    -v `pwd`/output:/output \
+    -w "/output" \
+    $CONTAINER_IMAGE "
 

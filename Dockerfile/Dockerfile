@@ -2,7 +2,7 @@ from debian:jessie
 
 #Maintener jerivas@uaq.edu.mx
 
-COPY test.ods   /tmp/test.ods
+COPY start_openoffice_headless.sh /
 
 RUN apt-get update && \
     apt-get install -y aptitude && \
@@ -15,14 +15,16 @@ RUN \
     rm -r /var/lib/apt/lists/* && \
     pip3 install pyoo 
 
-# VOLUME /home
-# EXPOSE 2002
+RUN mkdir /output
+
+
+VOLUME /output
 
 #RUN groupadd -r openoffice && useradd -r -g openoffice openoffice
 #USER openoffice
 #ENV uid 1000
 #ENV gid 1000
 
-COPY start_openoffice_headless.sh /
 
-# ENTRYPOINT ["start_openoffice_headless.sh"] 
+ENTRYPOINT ["start_openoffice_headless.sh"] 
+
