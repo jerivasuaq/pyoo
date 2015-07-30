@@ -2,7 +2,6 @@ from debian:jessie
 
 #Maintener jerivas@uaq.edu.mx
 
-COPY start_openoffice_headless.sh /
 
 RUN apt-get update && \
     apt-get install -y aptitude && \
@@ -17,7 +16,6 @@ RUN \
 
 RUN mkdir /output
 
-
 VOLUME /output
 
 #RUN groupadd -r openoffice && useradd -r -g openoffice openoffice
@@ -26,5 +24,5 @@ VOLUME /output
 #ENV gid 1000
 
 
-ENTRYPOINT ["start_openoffice_headless.sh"] 
+ENTRYPOINT ["/output/start_openoffice_headless.sh"] 
 

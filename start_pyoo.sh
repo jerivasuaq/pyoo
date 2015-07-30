@@ -1,20 +1,13 @@
 #!/bin/bash
 
-CONTAINER_IMAGE=pyoo_pyoo
-CONTAINER_OPENOFFICE=pyoo_openoffice
-CONTAINER_PYOO=pyoo_pyoo
+CONTAINER_IMAGE=pyoo
+CONTAINER_NAME=pyoo
 
+echo "Starting container..."
 echo ""
-echo ""
-echo ""
-echo "make sure $CONTAINER_OPENOFFICE container is running"
-echo ""
-echo ""
-echo ""
-sleep 1
 
-echo "docker run -ti --rm --name $CONTAINER_WEB --link $CONTAINER_OPENOFFICE:$CONTAINER_OPENOFFICE \
+docker run -ti --rm --name $CONTAINER_NAME \
     -v `pwd`/output:/output \
     -w "/output" \
-    $CONTAINER_IMAGE "
+    $CONTAINER_IMAGE 
 

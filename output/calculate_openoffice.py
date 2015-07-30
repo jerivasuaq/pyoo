@@ -17,5 +17,6 @@ sheet[0,2].value
 doc.save('/output/example.xlsx', pyoo.FILTER_EXCEL_2007)
 doc.close()
 
+print ("file output/example.xlsx created.")
 
 
